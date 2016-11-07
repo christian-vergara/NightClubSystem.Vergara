@@ -1,0 +1,41 @@
+package Model;
+
+/**
+ * Created by chris on 11/6/2016.
+ */
+public class Table {
+
+    private int tblNbr;
+    private int tblCapacity;
+    private CustomerBag customerBag;
+
+    public Table(int tblNbr, int tblCapacity) {
+        this.tblNbr = tblNbr;
+        this.tblCapacity = tblCapacity;
+    }
+
+    public void addCustomer(Customer customer) {
+        customerBag.addCustomer(customer);
+    }
+
+    public void removeCustomer(Customer customer) {
+        customerBag.removeCustomer(customer);
+    }
+
+    public int getTblNbr() {
+        return tblNbr;
+    }
+
+    public void setTblNbr(int tblNbr) {
+        this.tblNbr = tblNbr;
+    }
+
+    public int getTblCapacity() {
+        return tblCapacity;
+    }
+
+    public void setTblCapacity(int tblCapacity) {
+        this.tblCapacity = tblCapacity;
+    }
+}
+
