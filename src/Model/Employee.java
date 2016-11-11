@@ -11,9 +11,10 @@ public class Employee extends User {
     private double pay;
     private String hiringDate;
     private String leaveDate;
+    private UserBag userBag;
 
-    public Employee(String fName, String lName, String password, String rank, String payType, double pay, String hiringDate, String leaveDate) {
-        super(fName, lName, password);
+    public Employee(String fName, String lName,String userName, String password, String rank, String payType, double pay, String hiringDate, String leaveDate) {
+        super(fName, lName, userName, password, "emp");
         this.rank = rank;
         this.payType = payType;
         this.pay = pay;
@@ -21,6 +22,8 @@ public class Employee extends User {
         this.leaveDate = leaveDate;
         ++employeeId;
     }
+
+
 
     public int getEmployeeId() {
         return employeeId;

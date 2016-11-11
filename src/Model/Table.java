@@ -8,6 +8,7 @@ public class Table {
     private int tblNbr;
     private int tblCapacity;
     private CustomerBag customerBag;
+    private UserBag userBag = new UserBag();
 
     public Table(int tblNbr, int tblCapacity) {
         this.tblNbr = tblNbr;
@@ -15,7 +16,7 @@ public class Table {
     }
 
     public void addCustomer(Customer customer) {
-        customerBag.addCustomer(customer);
+
     }
 
     public void removeCustomer(Customer customer) {
