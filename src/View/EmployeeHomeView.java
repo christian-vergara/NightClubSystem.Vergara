@@ -36,7 +36,7 @@ public class EmployeeHomeView {
         employeeMenuBar.getStyleClass().add("menuBar");
 
         statusBar = new StatusBar();
-        statusBar.setText("Customers: " + "\t\tTables: "+ "\t\tEmployees: " + "\t\tEntertainers: " + "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t" + MainController.getCurrentUser().getfName() + " " + MainController.getCurrentUser().getlName());
+        statusBar.setText("\tCustomers: " + "\t\tTables: "+ "\t\tEmployees: " + "\t\tEntertainers: " + "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t" + MainController.getCurrentUser().getfName() + " " + MainController.getCurrentUser().getlName());
 
         pane.setBottom(statusBar);
 
@@ -50,7 +50,7 @@ public class EmployeeHomeView {
         MenuItem viewCustomer = new MenuItem("Customer");
         MenuItem viewEmployee = new MenuItem("Employee");
         MenuItem viewEntertainer = new MenuItem("Entertainer");
-        MenuItem viewItem = new MenuItem("tem");
+        MenuItem viewItem = new MenuItem("Item");
         view.getItems().addAll(viewCustomer, viewEmployee, viewEntertainer, viewTables, viewItem);
 
         Menu add = new Menu("Add");

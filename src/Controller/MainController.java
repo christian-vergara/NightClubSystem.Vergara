@@ -22,26 +22,29 @@ public class MainController {
             }
 
             public void loginPress() {
-                    if (verifyLogin() instanceof Employee && ((Employee) verifyLogin()).getRank().equals("Owner")) {
-                        System.out.println("Owner");
-                        currentUser = verifyLogin();
-                    }
-                    else if (verifyLogin() instanceof Employee && ((Employee) verifyLogin()).getRank().equals("Manager")) {
-                        System.out.println("Manager");
-                        currentUser = verifyLogin();
-                    }
-                    else if (verifyLogin() instanceof Employee && ((Employee) verifyLogin()).getRank().equals("General")) {
-                        System.out.println("General");
-                        currentUser = verifyLogin();
-                        EmployeeHomeView employeeHomeView = new EmployeeHomeView(App.App.getPrimaryStage());
-                    }
-                    else if(verifyLogin() instanceof Customer){
-                        System.out.println("Customer");
-                        currentUser = verifyLogin();
-                    } else {
-                        System.out.println("Error");
-                        alertUser();
-                    }
+//                    if (verifyLogin() instanceof Employee && ((Employee) verifyLogin()).getRank().equals("Owner")) {
+//                        System.out.println("Owner");
+//                        currentUser = verifyLogin();
+//                    }
+//                    else if (verifyLogin() instanceof Employee && ((Employee) verifyLogin()).getRank().equals("Manager")) {
+//                        System.out.println("Manager");
+//                        currentUser = verifyLogin();
+//                    }
+//                    else if (verifyLogin() instanceof Employee && ((Employee) verifyLogin()).getRank().equals("General")) {
+//                        System.out.println("General");
+//                        currentUser = verifyLogin();
+//                        EmployeeHomeView employeeHomeView = new EmployeeHomeView(App.App.getPrimaryStage());
+//                    }
+//                    else if(verifyLogin() instanceof Customer){
+//                        System.out.println("Customer");
+//                        currentUser = verifyLogin();
+//                    } else {
+//                        System.out.println("Error");
+//                        alertUser();
+//                    }
+
+                currentUser = verifyLogin();
+                EmployeeHomeView employeeHomeView = new EmployeeHomeView(App.App.getPrimaryStage());
             }
 
 
@@ -50,7 +53,8 @@ public class MainController {
 
 
     public User verifyLogin() {
-        return UserBag.getUserBagClass().verifyLogin(view.getUserField().getText(), view.getPassField().getText());
+        //return UserBag.getUserBagClass().verifyLogin(view.getUserField().getText(), view.getPassField().getText());
+        return  UserBag.getUserBagClass().verifyLogin("mc12", "mc12");
     }
 
     public void alertUser() {
