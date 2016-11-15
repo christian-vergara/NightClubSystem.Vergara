@@ -34,9 +34,11 @@ public class UserBag {
     }
 
     public User verifyLogin(String userName, String password) {
-        for (User anUserBag : userBag) {
-            if (anUserBag.getUserName().matches(userName) && anUserBag.getPassword().matches(password)) {
-                return anUserBag;
+        for (int i = 0;i < userBag.size();i++) {
+            if (userName.equals(userBag.get(i).getUserName()) && password.equals(userBag.get(i).getPassword())) {
+                return userBag.get(i);
+            } else if(!userName.equals(userBag.get(i).getUserName()) && !password.equals(userBag.get(i).getPassword())) {
+                return null;
             }
         }
         return null;
