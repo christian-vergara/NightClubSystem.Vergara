@@ -1,4 +1,6 @@
-package Model;
+package Model.Bags;
+
+import Model.Objects.Item;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package Model;
+package Model.Objects;
 
 /**
  * Created by chris on 11/6/2016.

@@ -1,4 +1,8 @@
-package Model;
+package Model.Objects;
+
+import Model.Bags.ItemBag;
+import Model.Objects.Customer;
+import Model.Objects.Item;
 
 /**
  * Created by chris on 11/6/2016.

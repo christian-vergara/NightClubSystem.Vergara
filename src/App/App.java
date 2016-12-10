@@ -1,11 +1,11 @@
 package App;
 
-import Controller.MainController;
+import Controller.Main.MainController;
 
-import Model.Employee;
-import Model.User;
-import Model.UserBag;
-import View.MainView;
+import Model.Objects.Employee;
+import Model.Objects.User;
+import Model.Bags.UserBag;
+import View.MainView.MainView;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -23,7 +23,7 @@ public class App extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        this.primaryStage = primaryStage;
+        App.primaryStage = primaryStage;
         MainView view = new MainView(primaryStage);
         MainController controller = new MainController(UserBag.getUserBagClass(), view);
         User e1 = new Employee("Joe", "McMullan", "mc12", "mc12", "General", "Hourly", 24.50, "11/9/16", "11/10/16");

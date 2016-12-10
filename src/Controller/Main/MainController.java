@@ -1,8 +1,9 @@
-package Controller;
+package Controller.Main;
 
-import Model.*;
-import View.EmployeeHomeView;
-import View.MainView;
+import Model.Bags.UserBag;
+import Model.Objects.User;
+import View.EmployeeHomeView.EmployeeHomeView;
+import View.MainView.MainView;
 import javafx.scene.control.Alert;
 
 /**

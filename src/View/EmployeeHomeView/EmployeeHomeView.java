@@ -1,17 +1,14 @@
-package View;
+package View.EmployeeHomeView;
 
-import Controller.MainController;
-import Model.Employee;
-import Model.User;
-import Model.UserBag;
+import Controller.Main.MainController;
+import Model.Objects.User;
 import javafx.scene.Scene;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.ProgressBar;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.controlsfx.control.StatusBar;
+
+import java.util.EventListener;
 
 
 /**
@@ -21,13 +18,16 @@ public class EmployeeHomeView {
 
     private static Stage stage;
     private static Scene scene;
-    private static StatusBar statusBar;
     private static User currentUser;
     private BorderPane pane;
     private MenuBar employeeMenuBar;
+    private EventListener menuItemListener;
+
+    private MenuItem viewTables, viewCustomer, viewEmployee, viewEntertainer, viewItem;
+    private MenuItem addTable, addCustomer, addEmployee, addEntertainer, addItem;
 
     public EmployeeHomeView(Stage stage) {
-        this.stage = stage;
+        EmployeeHomeView.stage = stage;
 
         //Root BorderPane
         pane = new BorderPane();
@@ -35,7 +35,7 @@ public class EmployeeHomeView {
         employeeMenuBar = new MenuBar();
         employeeMenuBar.getStyleClass().add("menuBar");
 
-        statusBar = new StatusBar();
+        StatusBar statusBar = new StatusBar();
         statusBar.setText("\tCustomers: " + "\t\tTables: "+ "\t\tEmployees: " + "\t\tEntertainers: " + "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t" + MainController.getCurrentUser().getfName() + " " + MainController.getCurrentUser().getlName());
 
         pane.setBottom(statusBar);
@@ -63,10 +63,9 @@ public class EmployeeHomeView {
 
         employeeMenuBar.getMenus().addAll(file, view, add);
 
-
         pane.setTop(employeeMenuBar);
         scene = new Scene(pane, 1280, 720);
-        scene.getStylesheets().add("View/EmployeeHomeView.css");
+        scene.getStylesheets().add("View/EmployeeHomeView/EmployeeHomeView.css");
         stage.setScene(scene);
         stage.show();
 
@@ -83,7 +82,6 @@ public class EmployeeHomeView {
     public static Stage getStage() {
         return stage;
     }
-
 
     public static Scene getScene() {
         return scene;
@@ -103,5 +101,49 @@ public class EmployeeHomeView {
 
     public void setEmployeeMenuBar(MenuBar employeeMenuBar) {
         this.employeeMenuBar = employeeMenuBar;
+    }
+
+    public void setMenuItemListener(EventListener manuItemListener) {
+        this.menuItemListener = menuItemListener;
+    }
+
+    public MenuItem getViewTables() {
+        return viewTables;
+    }
+
+    public MenuItem getViewCustomer() {
+        return viewCustomer;
+    }
+
+    public MenuItem getViewEmployee() {
+        return viewEmployee;
+    }
+
+    public MenuItem getViewEntertainer() {
+        return viewEntertainer;
+    }
+
+    public MenuItem getViewItem() {
+        return viewItem;
+    }
+
+    public MenuItem getAddTable() {
+        return addTable;
+    }
+
+    public MenuItem getAddCustomer() {
+        return addCustomer;
+    }
+
+    public MenuItem getAddEmployee() {
+        return addEmployee;
+    }
+
+    public MenuItem getAddEntertainer() {
+        return addEntertainer;
+    }
+
+    public MenuItem getAddItem() {
+        return addItem;
     }
 }

@@ -1,4 +1,4 @@
-package Model;
+package Controller.Main;
 
 import java.util.EventObject;
 import java.util.Objects;

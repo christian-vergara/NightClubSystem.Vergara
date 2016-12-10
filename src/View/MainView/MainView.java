@@ -1,14 +1,7 @@
-package View;
+package View.MainView;
 
-import Controller.MainController;
-import Model.Employee;
-import Model.MyEventListener;
-import Model.MyEventObject;
-import Model.User;
-import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import Controller.Main.MyEventListener;
+import Controller.Main.MyEventObject;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -26,19 +19,15 @@ import javafx.stage.Stage;
  */
 public class MainView {
 
-    private Stage stage;
     private Scene scene;
     private Button loginButton;
     private TextField userField;
     private PasswordField passField;
 
-
-
     private MyEventListener loginButtonListener;
 
-
     public MainView(Stage stage) {
-        this.stage = stage;
+        Stage stage1 = stage;
 
         Label mainLabel = new Label("Night Club Manager");
         mainLabel.setStyle("-fx-font-size: 72");
@@ -84,7 +73,7 @@ public class MainView {
         });
 
         scene = new Scene(pane, 1280, 720);
-        scene.getStylesheets().add("View/Main.css");
+        scene.getStylesheets().add("View/MainView/Main.css");
         stage.setScene(scene);
         stage.show();
 
