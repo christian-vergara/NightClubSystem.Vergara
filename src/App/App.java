@@ -1,11 +1,11 @@
 package App;
 
-import Controller.Main.MainController;
+import Controller.Login.LoginController;
 
 import Model.Objects.Employee;
 import Model.Objects.User;
 import Model.Bags.UserBag;
-import View.MainView.MainView;
+import View.MainView.LoginView;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -24,8 +24,8 @@ public class App extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
         App.primaryStage = primaryStage;
-        MainView view = new MainView(primaryStage);
-        MainController controller = new MainController(UserBag.getUserBagClass(), view);
+        LoginView view = new LoginView(primaryStage);
+        LoginController controller = new LoginController(UserBag.getUserBagClass(), view);
         User e1 = new Employee("Joe", "McMullan", "mc12", "mc12", "General", "Hourly", 24.50, "11/9/16", "11/10/16");
 
         primaryStage.setOnCloseRequest(e -> Platform.exit());

@@ -1,21 +1,20 @@
-package Controller.Main;
+package Controller.Login;
 
 import java.util.EventObject;
-import java.util.Objects;
 
 /**
  * Created by chris on 11/9/2016.
  */
-public class MyEventObject extends EventObject{
+public class LoginEventObject extends EventObject{
 
     private String userName;
     private String password;
 
-    public MyEventObject(Object source) {
+    public LoginEventObject(Object source) {
         super(source);
     }
 
-    public MyEventObject(Object source, String username, String password) {
+    public LoginEventObject(Object source, String username, String password) {
         super(source);
         this.userName = username;
         this.password = password;

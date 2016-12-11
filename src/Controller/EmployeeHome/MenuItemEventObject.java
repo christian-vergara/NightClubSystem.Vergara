@@ -18,7 +18,7 @@ public class MenuItemEventObject extends EventObject{
 
     public MenuItemEventObject(Object source, MenuItem menuItem) {
         super(source);
-        this.menuItem = menuItem
+        this.menuItem = menuItem;
     }
 
     public MenuItem getMenuItem() {

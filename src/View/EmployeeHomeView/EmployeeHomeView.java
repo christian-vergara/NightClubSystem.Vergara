@@ -1,6 +1,9 @@
 package View.EmployeeHomeView;
 
-import Controller.Main.MainController;
+import Controller.EmployeeHome.EmployeeHomeController;
+import Controller.EmployeeHome.MenuItemEventObject;
+import Controller.EmployeeHome.MenuItemListener;
+import Controller.Login.LoginController;
 import Model.Objects.User;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -21,13 +24,17 @@ public class EmployeeHomeView {
     private static User currentUser;
     private BorderPane pane;
     private MenuBar employeeMenuBar;
-    private EventListener menuItemListener;
+    private MenuItemListener menuItemListener;
+    private MenuItem menuItem;
 
     private MenuItem viewTables, viewCustomer, viewEmployee, viewEntertainer, viewItem;
     private MenuItem addTable, addCustomer, addEmployee, addEntertainer, addItem;
 
     public EmployeeHomeView(Stage stage) {
         EmployeeHomeView.stage = stage;
+
+        //Set Controller
+        EmployeeHomeController controller = new EmployeeHomeController(this, menuItem);
 
         //Root BorderPane
         pane = new BorderPane();
@@ -36,7 +43,7 @@ public class EmployeeHomeView {
         employeeMenuBar.getStyleClass().add("menuBar");
 
         StatusBar statusBar = new StatusBar();
-        statusBar.setText("\tCustomers: " + "\t\tTables: "+ "\t\tEmployees: " + "\t\tEntertainers: " + "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t" + MainController.getCurrentUser().getfName() + " " + MainController.getCurrentUser().getlName());
+        statusBar.setText("\tCustomers: " + "\t\tTables: "+ "\t\tEmployees: " + "\t\tEntertainers: " + "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t" + LoginController.getCurrentUser().getfName() + " " + LoginController.getCurrentUser().getlName());
 
         pane.setBottom(statusBar);
 
@@ -45,23 +52,55 @@ public class EmployeeHomeView {
         MenuItem load = new MenuItem("Load");
         file.getItems().addAll(save, load);
 
+        //Adding Menu items and setting ID's to pass to controller
         Menu view = new Menu("View");
-        MenuItem viewTables = new MenuItem("Tables");
-        MenuItem viewCustomer = new MenuItem("Customer");
-        MenuItem viewEmployee = new MenuItem("Employee");
-        MenuItem viewEntertainer = new MenuItem("Entertainer");
-        MenuItem viewItem = new MenuItem("Item");
+        viewTables = new MenuItem("Tables");
+        viewTables.setId("viewTables");
+        viewCustomer = new MenuItem("Customer");
+        viewCustomer.setId("viewCustomer");
+        viewEmployee = new MenuItem("Employee");
+        viewEmployee.setId("viewEmployee");
+        viewEntertainer = new MenuItem("Entertainer");
+        viewEntertainer.setId("viewEntertainer");
+        viewItem = new MenuItem("Item");
+        viewItem.setId("viewItem");
         view.getItems().addAll(viewCustomer, viewEmployee, viewEntertainer, viewTables, viewItem);
 
         Menu add = new Menu("Add");
-        MenuItem addCustomer = new MenuItem("Customer");
-        MenuItem addEmployee = new MenuItem("Employee");
-        MenuItem addEntertainer = new MenuItem("Entertainer");
-        MenuItem addItem = new MenuItem("Item");
-        MenuItem addTable = new MenuItem("Table");
+        addCustomer = new MenuItem("Customer");
+        addCustomer.setId("addCustomer");
+        addEmployee = new MenuItem("Employee");
+        addEmployee.setId("addEmployee");
+        addEntertainer = new MenuItem("Entertainer");
+        addEntertainer.setId("addEntertainer");
+        addItem = new MenuItem("Item");
+        addItem.setId("addItem");
+        addTable = new MenuItem("Table");
+        addTable.setId("addTable");
         add.getItems().addAll(addCustomer, addEmployee, addEntertainer, addTable, addItem);
 
         employeeMenuBar.getMenus().addAll(file, view, add);
+
+        //Action Events for each menuItem
+        addCustomer.setOnAction(event -> {
+            MenuItem menuItem = addCustomer;
+            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
+            if (menuItemListener != null) {
+                menuItemListener.itemClicked(ev);
+            }
+        });
+        addEmployee.setOnAction(event -> {
+            menuItem = addEmployee;
+        });
+        addEntertainer.setOnAction(event -> {
+            menuItem = addEntertainer;
+        });
+        addItem.setOnAction(event -> {
+            menuItem = addItem;
+        });
+        addTable.setOnAction(event -> {
+            menuItem = addItem;
+        });
 
         pane.setTop(employeeMenuBar);
         scene = new Scene(pane, 1280, 720);
@@ -103,7 +142,7 @@ public class EmployeeHomeView {
         this.employeeMenuBar = employeeMenuBar;
     }
 
-    public void setMenuItemListener(EventListener manuItemListener) {
+    public void setMenuItemListener(MenuItemListener menuItemListener) {
         this.menuItemListener = menuItemListener;
     }
 

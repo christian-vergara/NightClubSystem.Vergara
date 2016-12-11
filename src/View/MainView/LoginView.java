@@ -1,7 +1,7 @@
 package View.MainView;
 
-import Controller.Main.MyEventListener;
-import Controller.Main.MyEventObject;
+import Controller.Login.LoginEventListener;
+import Controller.Login.LoginEventObject;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,16 +17,16 @@ import javafx.stage.Stage;
 /**
  * Created by chris on 11/6/2016.
  */
-public class MainView {
+public class LoginView {
 
     private Scene scene;
     private Button loginButton;
     private TextField userField;
     private PasswordField passField;
 
-    private MyEventListener loginButtonListener;
+    private LoginEventListener loginButtonListener;
 
-    public MainView(Stage stage) {
+    public LoginView(Stage stage) {
         Stage stage1 = stage;
 
         Label mainLabel = new Label("Night Club Manager");
@@ -49,7 +49,7 @@ public class MainView {
         pass.getChildren().addAll(passLabel, passField);
         pass.setAlignment(Pos.CENTER);
 
-        // MainView VBox: Title + Fields
+        // LoginView VBox: Title + Fields
         VBox pane = new VBox(5);
         pane.setPadding(new Insets(5));
         pane.setSpacing(10);
@@ -66,21 +66,21 @@ public class MainView {
         loginButton.setOnAction(e -> {
             String userName = userField.getText();
             String password = passField.getText();
-            MyEventObject ev = new MyEventObject(this, userName, password);
+            LoginEventObject ev = new LoginEventObject(this, userName, password);
             if(loginButtonListener != null){
                 loginButtonListener.btnClicked(ev);
             }
         });
 
         scene = new Scene(pane, 1280, 720);
-        scene.getStylesheets().add("View/MainView/Main.css");
+        scene.getStylesheets().add("View/MainView/LoginView.css");
         stage.setScene(scene);
         stage.show();
 
 
     }
 
-    public void setLoginButtonListener(MyEventListener loginButtonListener) {
+    public void setLoginButtonListener(LoginEventListener loginButtonListener) {
         this.loginButtonListener = loginButtonListener;
     }
 

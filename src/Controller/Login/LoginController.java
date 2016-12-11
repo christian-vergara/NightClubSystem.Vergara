@@ -1,27 +1,28 @@
-package Controller.Main;
+package Controller.Login;
 
 import Model.Bags.UserBag;
 import Model.Objects.User;
 import View.EmployeeHomeView.EmployeeHomeView;
-import View.MainView.MainView;
+import View.MainView.LoginView;
 import javafx.scene.control.Alert;
 
 /**
  * Created by chris on 11/9/2016.
  */
-public class MainController {
+public class LoginController {
 
-    private MainView view;
+    private LoginView view;
     private static User currentUser;
 
-    public MainController(UserBag userBag, MainView view) {
+    public LoginController(UserBag userBag, LoginView view) {
         this.view = view;
-        view.setLoginButtonListener(new MyEventListener() {
+        view.setLoginButtonListener(new LoginEventListener() {
             @Override
-            public void btnClicked(MyEventObject ev) {
+            public void btnClicked(LoginEventObject ev) {
                 loginPress();
             }
 
+            //Verifying Login Info
             public void loginPress() {
 //                    if (verifyLogin() instanceof Employee && ((Employee) verifyLogin()).getRank().equals("Owner")) {
 //                        System.out.println("Owner");
@@ -45,6 +46,7 @@ public class MainController {
 //                    }
 
                 currentUser = verifyLogin();
+                //Temp for quick login
                 EmployeeHomeView employeeHomeView = new EmployeeHomeView(App.App.getPrimaryStage());
             }
 
@@ -67,11 +69,11 @@ public class MainController {
         view.getPassField().clear();
     }
 
-    public MainView getView() {
+    public LoginView getView() {
         return view;
     }
 
-    public void setView(MainView view) {
+    public void setView(LoginView view) {
         this.view = view;
     }
 
@@ -80,7 +82,7 @@ public class MainController {
     }
 
     public static void setCurrentUser(User currentUser) {
-        MainController.currentUser = currentUser;
+        LoginController.currentUser = currentUser;
     }
 }
 
