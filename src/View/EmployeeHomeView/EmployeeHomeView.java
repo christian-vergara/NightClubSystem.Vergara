@@ -23,12 +23,12 @@ public class EmployeeHomeView {
     private static Scene scene;
     private static User currentUser;
     private BorderPane pane;
-    private MenuBar employeeMenuBar;
+    private static MenuBar employeeMenuBar;
     private MenuItemListener menuItemListener;
     private MenuItem menuItem;
-
     private MenuItem viewTables, viewCustomer, viewEmployee, viewEntertainer, viewItem;
     private MenuItem addTable, addCustomer, addEmployee, addEntertainer, addItem;
+
 
     public EmployeeHomeView(Stage stage) {
         EmployeeHomeView.stage = stage;
@@ -39,13 +39,13 @@ public class EmployeeHomeView {
         //Root BorderPane
         pane = new BorderPane();
 
-        employeeMenuBar = new MenuBar();
-        employeeMenuBar.getStyleClass().add("menuBar");
-
         StatusBar statusBar = new StatusBar();
         statusBar.setText("\tCustomers: " + "\t\tTables: "+ "\t\tEmployees: " + "\t\tEntertainers: " + "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t" + LoginController.getCurrentUser().getfName() + " " + LoginController.getCurrentUser().getlName());
 
         pane.setBottom(statusBar);
+
+        employeeMenuBar = new MenuBar();
+        employeeMenuBar.getStyleClass().add("menuBar");
 
         Menu file = new Menu("File");
         MenuItem save = new MenuItem("Save");
@@ -134,18 +134,6 @@ public class EmployeeHomeView {
         this.pane = pane;
     }
 
-    public MenuBar getEmployeeMenuBar() {
-        return employeeMenuBar;
-    }
-
-    public void setEmployeeMenuBar(MenuBar employeeMenuBar) {
-        this.employeeMenuBar = employeeMenuBar;
-    }
-
-    public void setMenuItemListener(MenuItemListener menuItemListener) {
-        this.menuItemListener = menuItemListener;
-    }
-
     public MenuItem getViewTables() {
         return viewTables;
     }
@@ -185,4 +173,16 @@ public class EmployeeHomeView {
     public MenuItem getAddItem() {
         return addItem;
     }
+
+    public static MenuBar getEmployeeMenuBar() {
+        return employeeMenuBar;
+    }
+    
+    public void setMenuItemListener(MenuItemListener menuItemListener) {
+        this.menuItemListener = menuItemListener;
+    }
+
+
+
+
 }
