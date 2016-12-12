@@ -34,7 +34,7 @@ public class EmployeeHomeView {
         EmployeeHomeView.stage = stage;
 
         //Set Controller
-        EmployeeHomeController controller = new EmployeeHomeController(this, menuItem);
+        EmployeeHomeController controller = new EmployeeHomeController(this);
 
         //Root BorderPane
         pane = new BorderPane();
@@ -79,9 +79,12 @@ public class EmployeeHomeView {
         addTable.setId("addTable");
         add.getItems().addAll(addCustomer, addEmployee, addEntertainer, addTable, addItem);
 
+
+
         employeeMenuBar.getMenus().addAll(file, view, add);
 
         //Action Events for each menuItem
+        //ADD
         addCustomer.setOnAction(event -> {
             MenuItem menuItem = addCustomer;
             MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
@@ -90,16 +93,68 @@ public class EmployeeHomeView {
             }
         });
         addEmployee.setOnAction(event -> {
-            menuItem = addEmployee;
+            MenuItem menuItem = addEmployee;
+            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
+            if (menuItemListener != null) {
+                menuItemListener.itemClicked(ev);
+            }
         });
         addEntertainer.setOnAction(event -> {
-            menuItem = addEntertainer;
+            MenuItem menuItem = addEntertainer;
+            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
+            if (menuItemListener != null) {
+                menuItemListener.itemClicked(ev);
+            }
         });
         addItem.setOnAction(event -> {
-            menuItem = addItem;
+            MenuItem menuItem = addItem;
+            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
+            if (menuItemListener != null) {
+                menuItemListener.itemClicked(ev);
+            }
         });
         addTable.setOnAction(event -> {
-            menuItem = addItem;
+            MenuItem menuItem = addTable;
+            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
+            if (menuItemListener != null) {
+                menuItemListener.itemClicked(ev);
+            }
+        });
+        //VIEW
+        viewCustomer.setOnAction(event -> {
+            MenuItem menuItem = viewCustomer;
+            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
+            if (menuItemListener != null) {
+                menuItemListener.itemClicked(ev);
+            }
+        });
+        viewEmployee.setOnAction(event -> {
+            MenuItem menuItem = viewEmployee;
+            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
+            if (menuItemListener != null) {
+                menuItemListener.itemClicked(ev);
+            }
+        });
+        viewEntertainer.setOnAction(event -> {
+            MenuItem menuItem = viewEntertainer;
+            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
+            if (menuItemListener != null) {
+                menuItemListener.itemClicked(ev);
+            }
+        });
+        viewItem.setOnAction(event -> {
+            MenuItem menuItem = viewItem;
+            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
+            if (menuItemListener != null) {
+                menuItemListener.itemClicked(ev);
+            }
+        });
+        viewTables.setOnAction(event -> {
+            MenuItem menuItem = viewTables;
+            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
+            if (menuItemListener != null) {
+                menuItemListener.itemClicked(ev);
+            }
         });
 
         pane.setTop(employeeMenuBar);

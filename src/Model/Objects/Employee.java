@@ -25,8 +25,6 @@ public class Employee extends User {
         ++employeeId;
     }
 
-
-
     public int getEmployeeId() {
         return employeeId;
     }

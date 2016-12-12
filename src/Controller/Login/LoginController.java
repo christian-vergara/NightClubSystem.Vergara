@@ -56,8 +56,9 @@ public class LoginController {
 
 
     public User verifyLogin() {
+        //REMEMBER TO UNCOMMENT THIS IS JUST FOR QUICK LOGIN*****
         //return UserBag.getUserBagClass().verifyLogin(view.getUserField().getText(), view.getPassField().getText());
-        return  UserBag.getUserBagClass().verifyLogin("mc12", "mc12");
+        return UserBag.getUserBagClass().verifyLogin("mc12", "mc12");
     }
 
     public void alertUser() {

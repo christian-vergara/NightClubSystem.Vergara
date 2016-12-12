@@ -1,6 +1,8 @@
 .root{
-    -fx-background-color: #181818;
-}
+
+}.root{
+     -fx-background-color: #181818;
+ }
 
 .menu-bar{
     -fx-background-color: #282828;

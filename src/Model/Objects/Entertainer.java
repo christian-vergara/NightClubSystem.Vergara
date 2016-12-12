@@ -11,7 +11,6 @@ public class Entertainer extends User {
     private double pay;
     private int hours;
     private String workDate;
-    private UserBag userBag = new UserBag();
 
     public Entertainer(String fName, String lName,String username, String password, String type, double pay, int hours, String workDate) {
         super(fName, lName, username, password, "ent");

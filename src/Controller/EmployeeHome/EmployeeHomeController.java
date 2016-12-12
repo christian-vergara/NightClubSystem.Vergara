@@ -20,7 +20,7 @@ public class EmployeeHomeController {
     private EmployeeHomeView view;
     private MenuItem menuItem;
 
-    public EmployeeHomeController(EmployeeHomeView view, MenuItem menuItem) {
+    public EmployeeHomeController(EmployeeHomeView view) {
 
         this.view = view;
         view.setMenuItemListener(new MenuItemListener() {
