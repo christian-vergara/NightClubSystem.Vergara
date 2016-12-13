@@ -1,15 +1,9 @@
 package Controller.EmployeeHome;
 
 import Controller.Login.LoginEventListener;
-import View.AddView.AddCustomerView;
-import View.AddView.AddEntertainerView;
-import View.AddView.AddItemView;
-import View.AddView.AddTableView;
+import View.AddView.*;
 import View.EmployeeHomeView.EmployeeHomeView;
-import View.ViewView.ViewCustomerView;
-import View.ViewView.ViewEntertainerView;
-import View.ViewView.ViewItemView;
-import View.ViewView.ViewTablesView;
+import View.ViewView.*;
 import javafx.scene.control.MenuItem;
 
 /**
@@ -41,6 +35,9 @@ public class EmployeeHomeController {
                     case "viewItem":
                         ViewItemView viewItemView = new ViewItemView(App.App.getPrimaryStage());
                         break;
+                    case "viewEmployee":
+                        ViewEmployeeView viewEmployeeView = new ViewEmployeeView(App.App.getPrimaryStage());
+                        break;
                     case "addCustomer":
                         AddCustomerView addCustomerView = new AddCustomerView(App.App.getPrimaryStage());
                         break;
@@ -52,6 +49,9 @@ public class EmployeeHomeController {
                         break;
                     case "addItem":
                         AddItemView addItemView = new AddItemView(App.App.getPrimaryStage());
+                        break;
+                    case "addEmployee":
+                        AddEmployeeView addEmployeeView = new AddEmployeeView(App.App.getPrimaryStage());
                         break;
                 }
             }

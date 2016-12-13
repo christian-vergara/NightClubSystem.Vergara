@@ -66,7 +66,7 @@ public class AddTableView {
         });
 
         Scene scene = new Scene(pane, 1280, 720);
-        scene.getStylesheets().addAll("View/AddView/AddTableStyle.css");
+        scene.getStylesheets().addAll("View/AddView/AddStyleSheet.css");
         stage.setScene(scene);
         stage.show();
     }
