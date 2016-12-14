@@ -9,4 +9,10 @@ public interface AddItemEventListener extends EventListener{
 
     void btnClicked(AddItemEventObject eventObject);
 
+    void btnClickedBeer(AddBeerEventObject eventObject);
+
+    void btnClickedWine(AddWineEventObject eventObject);
+
+    void btnClickedLiquor(AddLiquorEventObject eventObject);
+
 }

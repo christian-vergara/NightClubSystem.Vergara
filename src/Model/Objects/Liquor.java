@@ -1,15 +1,15 @@
 package Model.Objects;
 
 /**
- * Created by chris on 11/6/2016.
+ * Created by Studio on 12/14/2016.
  */
-public class Beer extends Item {
+public class Liquor extends Item {
 
     private String brand;
     private String origin;
     private double alcVol;
 
-    public Beer(String type, String name, String description, double price, String brand, String origin, double alcVol) {
+    public Liquor(String type, String name, String description, double price, String brand, String origin, double alcVol) {
         super(type, name, description, price);
         this.brand = brand;
         this.origin = origin;
