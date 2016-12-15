@@ -79,7 +79,7 @@ public class AddEntertainerView {
         pane.add(payField, 1, 10);
 
         Label userIdLabel = new Label("User Id: ");
-        userIdField = new TextField(Integer.toString(User.getUserId()));
+        userIdField = new TextField(Integer.toString(User.getCount()));
         userIdField.setEditable(false);
         pane.add(userIdLabel, 0, 11);
         pane.add(userIdField, 1, 11);

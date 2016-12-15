@@ -39,7 +39,7 @@ public class AddItemController {
                 confirmAdd.setContentText("Would you like to add this Beer?");
                 confirmAdd.showAndWait().ifPresent(response -> {
                     if (response == ButtonType.OK) {
-                        Beer b = new Beer(eventObject.getType(), eventObject.getName(), eventObject.getDescription(), eventObject.getPrice(), eventObject.getBrand(), eventObject.getOrigin(), eventObject.getAlcVol() );
+                        Item b = new Beer(eventObject.getType(), eventObject.getName(), eventObject.getDescription(), eventObject.getPrice(), eventObject.getBrand(), eventObject.getOrigin(), eventObject.getAlcVol() );
                         addItemView.getNameField().clear();
                         addItemView.getDescriptionField().clear();
                         addItemView.getPriceField().clear();
@@ -58,7 +58,7 @@ public class AddItemController {
                 confirmAdd.setContentText("Would you like to add this Wine?");
                 confirmAdd.showAndWait().ifPresent(response -> {
                     if (response == ButtonType.OK) {
-                        Wine w = new Wine(eventObject.getType(), eventObject.getName(), eventObject.getDescription(), eventObject.getPrice(), eventObject.getBrand(), eventObject.getOrigin(), eventObject.getColor(), eventObject.getAlcVol() );
+                        Item w = new Wine(eventObject.getType(), eventObject.getName(), eventObject.getDescription(), eventObject.getPrice(), eventObject.getBrand(), eventObject.getOrigin(), eventObject.getColor(), eventObject.getAlcVol() );
                         addItemView.getNameField().clear();
                         addItemView.getDescriptionField().clear();
                         addItemView.getPriceField().clear();
@@ -78,7 +78,7 @@ public class AddItemController {
                 confirmAdd.setContentText("Would you like to add this Liquor?");
                 confirmAdd.showAndWait().ifPresent(response -> {
                     if (response == ButtonType.OK) {
-                        Liquor l = new Liquor(eventObject.getType(), eventObject.getName(), eventObject.getDescription(), eventObject.getPrice(), eventObject.getBrand(), eventObject.getOrigin(), eventObject.getAlcVol() );
+                        Item l = new Liquor(eventObject.getType(), eventObject.getName(), eventObject.getDescription(), eventObject.getPrice(), eventObject.getBrand(), eventObject.getOrigin(), eventObject.getAlcVol() );
                         addItemView.getNameField().clear();
                         addItemView.getDescriptionField().clear();
                         addItemView.getPriceField().clear();

@@ -1,5 +1,7 @@
 package Model.Objects;
 
+import App.App;
+
 /**
  * Created by chris on 11/6/2016.
  */
@@ -8,7 +10,7 @@ public class Item {
     private String type;
     private String name;
     private String description;
-    private double Price;
+    private double price;
 
 
 
@@ -16,7 +18,8 @@ public class Item {
         this.type = type;
         this.name = name;
         this.description = description;
-        Price = price;
+        this.price = price;
+        App.getItemBag().addItem(this);
     }
 
     public String getType() {
@@ -36,11 +39,11 @@ public class Item {
     }
 
     public double getPrice() {
-        return Price;
+        return price;
     }
 
     public void setPrice(double price) {
-        Price = price;
+        this.price = price;
     }
 
     public String getDescription() {

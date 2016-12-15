@@ -1,10 +1,12 @@
 package View.AddView;
 
+import App.AddUser;
 import Controller.AddCustomerController.AddCustomerController;
 import Controller.AddCustomerController.AddCustomerEventObject;
 import Controller.AddCustomerController.AddCustomerListener;
 import Controller.Login.LoginController;
 import Model.Bags.TableBag;
+import Model.Bags.UserBag;
 import Model.Objects.User;
 import View.EmployeeHomeView.EmployeeHomeView;
 import javafx.geometry.Insets;
@@ -28,6 +30,9 @@ public class AddCustomerView {
     private PasswordField passField;
 
     public AddCustomerView(Stage stage) {
+
+//        System.out.println("hi");
+
         this.stage = stage;
         AddCustomerController controller = new AddCustomerController(this);
 
@@ -62,11 +67,10 @@ public class AddCustomerView {
         gridPane.add(passField, 1, 8);
 
         Label userIdLabel = new Label("User Id: ");
-        userIdField = new TextField(Integer.toString(User.getUserId()));
+        userIdField = new TextField(Integer.toString(User.getCount()));
         userIdField.setEditable(false);
         gridPane.add(userIdLabel, 0, 9);
         gridPane.add(userIdField, 1, 9);
-
 
         Button addButton = new Button("Add Customer");
         gridPane.add(addButton, 0, 10);

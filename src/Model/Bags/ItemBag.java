@@ -20,9 +20,9 @@ public class ItemBag {
         itemBag.remove(item);
     }
 
-    public Item findItem(Item item) {
+    public Item findItem(String name) {
         for(int i = 0;i < itemBag.size();i++) {
-            if (itemBag.get(i) == item) {
+            if (itemBag.get(i).getName().equalsIgnoreCase(name)) {
                 return itemBag.get(i);
             }
         }

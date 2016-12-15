@@ -1,5 +1,7 @@
 package Controller.AddCustomerController;
 
+import App.App;
+import Model.Bags.UserBag;
 import Model.Objects.Customer;
 import Model.Objects.User;
 import View.AddView.AddCustomerView;
@@ -25,12 +27,16 @@ public class AddCustomerController {
                 confirmAdd.setContentText("Would you like to add this Customer?");
                 confirmAdd.showAndWait().ifPresent(response -> {
                     if (response == ButtonType.OK) {
-                        Customer c = new Customer(eventObject.getfName(), eventObject.getlName(), eventObject.getUserName(), eventObject.getPass());
+                        User c = new Customer(eventObject.getfName(), eventObject.getlName(), eventObject.getUserName(), eventObject.getPass());
+                        Alert success = new Alert(Alert.AlertType.INFORMATION);
+                        success.setTitle("Success!");
+                        success.setHeaderText("Customer Added!");
+                        success.showAndWait();
                         view.getfNameField().clear();
                         view.getlNameField().clear();
                         view.getuNameField().clear();
                         view.getPassField().clear();
-                        view.getUserIdField().setText(Integer.toString(User.getUserId()));
+                        view.getUserIdField().setText(Integer.toString(User.getCount()));
                     }
                 });
 

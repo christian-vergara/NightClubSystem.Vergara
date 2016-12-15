@@ -19,7 +19,7 @@ public class AddEntertainerController {
             confirmAdd.setContentText("Would you like to add this entertainer?");
             confirmAdd.showAndWait().ifPresent(response -> {
                 if (response == ButtonType.OK) {
-                    Entertainer e = new Entertainer(eventObject.getfName(), eventObject.getlName(), eventObject.getuName(), eventObject.getPass(),
+                    User e = new Entertainer(eventObject.getfName(), eventObject.getlName(), eventObject.getuName(), eventObject.getPass(),
                             eventObject.getType(), eventObject.getPay(), 0, "0");
                     addEntertainerView.getfNameField().clear();
                     addEntertainerView.getlNameField().clear();
@@ -27,7 +27,7 @@ public class AddEntertainerController {
                     addEntertainerView.getPassField().clear();
                     addEntertainerView.getTypeField().clear();
                     addEntertainerView.getPayField().clear();
-                    addEntertainerView.getUserIdField().setText(Integer.toString(User.getUserId()));
+                    addEntertainerView.getUserIdField().setText(Integer.toString(User.getCount()));
                 }
             });
 

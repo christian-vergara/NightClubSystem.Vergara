@@ -12,9 +12,10 @@ public class User {
     // type to separate different types of users
     // emp, cust, ent
     private String type;
-    private static int userId = 0;
+    private int userId;
     private String userName;
     private String password;
+    private static int count = 1;
 
     public User() {
     }
@@ -25,8 +26,8 @@ public class User {
         this.userName = userName;
         this.password = password;
         this.type = type;
-        ++userId;
-        UserBag.getUserBagClass().addUser(this);
+        userId = count;
+        count++;
     }
 
     public String getfName() {
@@ -61,8 +62,12 @@ public class User {
         this.password = password;
     }
 
-    public static int getUserId() {
+    public int getUserId() {
         return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getType() {
@@ -73,5 +78,11 @@ public class User {
         this.type = type;
     }
 
-
+    public static int getCount() {
+        return count;
+    }
 }
+
+
+
+

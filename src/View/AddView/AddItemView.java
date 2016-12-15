@@ -33,7 +33,7 @@ public class AddItemView {
     private GridPane pane;
     private GridPane tempPane;
     private BorderPane root;
-    private ChoiceBox<String> typeField;
+    private ChoiceBox typeField;
 
     public AddItemView(Stage stage) {
         this.stage = stage;
@@ -92,6 +92,7 @@ public class AddItemView {
     }
 
 
+    //Listening for change in ChoiceBox, refreshes pane based on choice
     public void listenForChange(String selected) {
         if (selected.equals("Food") || selected.equals("Drink")) {
 
@@ -114,7 +115,7 @@ public class AddItemView {
             }
             //listen for selection changes
             typeField.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
-                setSelected(newValue);
+                setSelected(newValue.toString());
             });
 
             Label nameLabel = new Label("Name: ");
@@ -139,16 +140,18 @@ public class AddItemView {
                 Double price;
                 type = typeField.getValue().toString();
                 name = nameField.getText();
-                description = nameField.getText();
+                description = descriptionField.getText();
                 price = Double.parseDouble(priceField.getText());
                 AddItemEventObject eventObject = new AddItemEventObject(this, type, name, description, price);
                 if (addItemEventListener != null) {
                     addItemEventListener.btnClicked(eventObject);
                 }
+                Alert success = new Alert(Alert.AlertType.INFORMATION);
+                success.setTitle("Added!");
+                success.setHeaderText("Item added!");
+                success.showAndWait();
             });
         }
-
-
 
 
         if (selected.equals("Beer")) {
@@ -167,7 +170,7 @@ public class AddItemView {
             typeField.setValue("Beer");
             //listen for selection changes
             typeField.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
-                setSelected(newValue);
+                setSelected(newValue.toString());
             });
 
             Label nameLabel = new Label("Name: ");
@@ -207,7 +210,7 @@ public class AddItemView {
                 Double price3, alcVol3;
                 type3 = typeField.getValue().toString();
                 name3 = nameField.getText();
-                description3 = nameField.getText();
+                description3 = descriptionField.getText();
                 price3 = Double.parseDouble(priceField.getText());
                 brand3 = brandField.getText();
                 origin3 = originField.getText();
@@ -216,6 +219,10 @@ public class AddItemView {
                 if (addItemEventListener != null) {
                     addItemEventListener.btnClickedBeer(eventObject3);
                 }
+                Alert success = new Alert(Alert.AlertType.INFORMATION);
+                success.setTitle("Added!");
+                success.setHeaderText("Item added!");
+                success.showAndWait();
 
             });
         }
@@ -236,7 +243,7 @@ public class AddItemView {
             typeField.setValue("Wine");
             //listen for selection changes
             typeField.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
-                setSelected(newValue);
+                setSelected(newValue.toString());
             });
 
             Label nameLabel = new Label("Name: ");
@@ -281,7 +288,7 @@ public class AddItemView {
                 Double price1, alcVol1;
                 type1 = typeField.getValue().toString();
                 name1 = nameField.getText();
-                description1 = nameField.getText();
+                description1 = descriptionField.getText();
                 price1 = Double.parseDouble(priceField.getText());
                 brand1 = brandField.getText();
                 origin1 = originField.getText();
@@ -291,6 +298,10 @@ public class AddItemView {
                 if (addItemEventListener != null) {
                     addItemEventListener.btnClickedWine(eventObject1);
                 }
+                Alert success = new Alert(Alert.AlertType.INFORMATION);
+                success.setTitle("Added!");
+                success.setHeaderText("Item added!");
+                success.showAndWait();
             });
         }
 
@@ -310,7 +321,7 @@ public class AddItemView {
             typeField.setValue("Liquor");
             //listen for selection changes
             typeField.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
-                setSelected(newValue);
+                setSelected(newValue.toString());
             });
 
             Label nameLabel = new Label("Name: ");
@@ -350,7 +361,7 @@ public class AddItemView {
                 Double price2, alcVol2;
                 type2 = typeField.getValue().toString();
                 name2 = nameField.getText();
-                description2 = nameField.getText();
+                description2 = descriptionField.getText();
                 price2 = Double.parseDouble(priceField.getText());
                 brand2 = brandField.getText();
                 origin2 = originField.getText();
@@ -359,6 +370,10 @@ public class AddItemView {
                 if (addItemEventListener != null) {
                     addItemEventListener.btnClickedLiquor(eventObject2);
                 }
+                Alert success = new Alert(Alert.AlertType.INFORMATION);
+                success.setTitle("Added!");
+                success.setHeaderText("Item added!");
+                success.showAndWait();
             });
         }
     }

@@ -84,12 +84,12 @@ public class AddEmployeeView {
         pane.add(hiringDateField, 1, 12);
 
         Label userIdLabel = new Label("User ID: ");
-        userIdField = new TextField(Integer.toString(User.getUserId()));
+        userIdField = new TextField(Integer.toString(User.getCount()));
         userIdField.setEditable(false);
         pane.add(userIdLabel, 0, 13);
         pane.add(userIdField, 1, 13);
 
-        Button addButton = new Button("New Employee");
+        Button addButton = new Button("Add Employee");
         pane.add(addButton, 0, 14);
         addButton.setOnAction(event -> {
             String fName = fNameField.getText();

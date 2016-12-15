@@ -35,9 +35,6 @@ public class EmployeeHomeController {
                     case "viewItem":
                         ViewItemView viewItemView = new ViewItemView(App.App.getPrimaryStage());
                         break;
-                    case "viewEmployee":
-                        ViewEmployeeView viewEmployeeView = new ViewEmployeeView(App.App.getPrimaryStage());
-                        break;
                     case "addCustomer":
                         AddCustomerView addCustomerView = new AddCustomerView(App.App.getPrimaryStage());
                         break;

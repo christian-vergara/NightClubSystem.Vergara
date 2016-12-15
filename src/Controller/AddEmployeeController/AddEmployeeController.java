@@ -21,7 +21,7 @@ public class AddEmployeeController {
                 confirmAdd.setContentText("Would you like to add this Employee?");
                 confirmAdd.showAndWait().ifPresent(response -> {
                     if (response == ButtonType.OK) {
-                        Employee e = new Employee(ev.getfName(), ev.getlName(), ev.getuName(), ev.getPass(),
+                        User e = new Employee(ev.getfName(), ev.getlName(), ev.getuName(), ev.getPass(),
                                 ev.getRank(), ev.getPayType(), ev.getPay(), ev.getHiringDate(), "NA");
                         addEmployeeView.getfNameField().clear();
                         addEmployeeView.getlNameField().clear();
@@ -31,7 +31,7 @@ public class AddEmployeeController {
                         addEmployeeView.getPayTypeField().clear();
                         addEmployeeView.getPayField().clear();
                         addEmployeeView.getHiringDateField().clear();
-                        addEmployeeView.getUserIdField().setText(Integer.toString(User.getUserId()));
+                        addEmployeeView.getUserIdField().setText(Integer.toString(User.getCount()));
                     }
                 });
 

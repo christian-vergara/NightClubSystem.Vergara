@@ -1,5 +1,6 @@
 package Model.Objects;
 
+import App.App;
 import Model.Bags.UserBag;
 
 /**
@@ -23,6 +24,7 @@ public class Employee extends User {
         this.hiringDate = hiringDate;
         this.leaveDate = leaveDate;
         ++employeeId;
+        App.getUserBag().addUser(this);
     }
 
     public int getEmployeeId() {

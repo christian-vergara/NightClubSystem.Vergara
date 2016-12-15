@@ -39,10 +39,10 @@ public class EmployeeHomeView {
         //Root BorderPane
         pane = new BorderPane();
 
-        StatusBar statusBar = new StatusBar();
-        statusBar.setText("\tCustomers: " + "\t\tTables: "+ "\t\tEmployees: " + "\t\tEntertainers: " + "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t" + LoginController.getCurrentUser().getfName() + " " + LoginController.getCurrentUser().getlName());
+//        StatusBar statusBar = new StatusBar();
+//        statusBar.setText("\tCustomers: " + "\t\tTables: "+ "\t\tEmployees: " + "\t\tEntertainers: " + "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t" + LoginController.getCurrentUser().getfName() + " " + LoginController.getCurrentUser().getlName());
 
-        pane.setBottom(statusBar);
+        //pane.setBottom(statusBar);
 
         employeeMenuBar = new MenuBar();
         employeeMenuBar.getStyleClass().add("menuBar");
@@ -58,13 +58,11 @@ public class EmployeeHomeView {
         viewTables.setId("viewTables");
         viewCustomer = new MenuItem("Customer");
         viewCustomer.setId("viewCustomer");
-        viewEmployee = new MenuItem("Employee");
-        viewEmployee.setId("viewEmployee");
         viewEntertainer = new MenuItem("Entertainer");
         viewEntertainer.setId("viewEntertainer");
         viewItem = new MenuItem("Item");
         viewItem.setId("viewItem");
-        view.getItems().addAll(viewCustomer, viewEmployee, viewEntertainer, viewTables, viewItem);
+        view.getItems().addAll(viewCustomer, viewEntertainer, viewTables, viewItem);
 
         Menu add = new Menu("Add");
         addCustomer = new MenuItem("Customer");
@@ -128,13 +126,13 @@ public class EmployeeHomeView {
                 menuItemListener.itemClicked(ev);
             }
         });
-        viewEmployee.setOnAction(event -> {
+   /*     viewEmployee.setOnAction(event -> {
             MenuItem menuItem = viewEmployee;
             MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
             if (menuItemListener != null) {
                 menuItemListener.itemClicked(ev);
             }
-        });
+        }); */
         viewEntertainer.setOnAction(event -> {
             MenuItem menuItem = viewEntertainer;
             MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);

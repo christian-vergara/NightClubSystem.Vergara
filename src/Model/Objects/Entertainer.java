@@ -1,5 +1,6 @@
 package Model.Objects;
 
+import App.App;
 import Model.Bags.UserBag;
 
 /**
@@ -8,16 +9,17 @@ import Model.Bags.UserBag;
 public class Entertainer extends User {
 
     private String type;
-    private double pay;
+    private Double pay;
     private int hours;
     private String workDate;
 
-    public Entertainer(String fName, String lName,String username, String password, String type, double pay, int hours, String workDate) {
+    public Entertainer(String fName, String lName,String username, String password, String type, Double pay, int hours, String workDate) {
         super(fName, lName, username, password, "ent");
         this.type = type;
         this.pay = pay;
         this.hours = hours;
         this.workDate = workDate;
+        App.getUserBag().addUser(this);
     }
 
     public String getType() {
@@ -28,7 +30,7 @@ public class Entertainer extends User {
         this.type = type;
     }
 
-    public double getPay() {
+    public Double getPay() {
         return pay;
     }
 

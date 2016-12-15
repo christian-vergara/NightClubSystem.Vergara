@@ -8,10 +8,15 @@ import Model.Bags.UserBag;
 public class Customer extends User {
 
     private static int customerId = 0;
-    private UserBag userBag = new UserBag();
+
 
     public Customer(String fName, String lName,String userName, String password) {
         super(fName, lName,userName, password, "cust");
         ++customerId;
+        App.App.getUserBag().addUser(this);
+    }
+
+    public static int getCustomerId() {
+        return customerId;
     }
 }

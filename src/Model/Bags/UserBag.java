@@ -1,5 +1,6 @@
 package Model.Bags;
 
+import Model.Objects.Employee;
 import Model.Objects.User;
 
 import java.util.ArrayList;
@@ -11,11 +12,10 @@ import java.util.List;
 public class UserBag {
 
     private List<User> userBag = new ArrayList<>();
-    private static UserBag userBagClass = new UserBag();
+    private UserBag userBagClass = this;
     private User currentUser;
 
     public UserBag() {
-
     }
 
     public void addUser(User user) {
@@ -31,7 +31,7 @@ public class UserBag {
     }
 
 
-    public static UserBag getUserBagClass() {
+    public UserBag getUserBagClass() {
         return userBagClass;
     }
 
@@ -49,5 +49,17 @@ public class UserBag {
 
     public User getCurrentUser() {
         return currentUser;
+    }
+
+
+    public User findUser(int userId) {
+        int index = 0;
+        for(int i = 0;i < userBag.size();i++ ) {
+            if (userBag.get(i).getUserId() == userId) {
+                index = i;
+                return userBag.get(index);
+            }
+        }
+        return null;
     }
 }
