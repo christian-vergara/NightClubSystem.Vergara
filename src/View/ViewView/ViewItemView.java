@@ -1,12 +1,11 @@
 package View.ViewView;
 
 import App.App;
+import Controller.Login.LoginController;
 import Controller.ViewItemController.*;
-import Model.Objects.Beer;
-import Model.Objects.Item;
-import Model.Objects.Liquor;
-import Model.Objects.Wine;
+import Model.Objects.*;
 import View.EmployeeHomeView.EmployeeHomeView;
+import View.ManagerHomeView.ManagerHomeView;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -31,7 +30,7 @@ public class ViewItemView {
     private GridPane tempPane;
     private BorderPane root;
     private ChoiceBox typeField;
-    private Item searchResult;
+    private Item item;
     private Beer beerResult;
     private Wine wineResult;
     private Liquor liquorResult;
@@ -47,24 +46,29 @@ public class ViewItemView {
         Optional<String> result = dialog.showAndWait();
 
         if (App.getItemBag().findItem(result.get()) != null) {
-            searchResult = App.getItemBag().findItem(result.get());
-            if (searchResult.getType().equals("Beer")) {
-                beerResult = (Beer) searchResult;
-            } else if (searchResult.getType().equals("Wine")) {
-                wineResult = (Wine) searchResult;
-            } else if (searchResult.getType().equals("Liquor")) {
-                liquorResult = (Liquor) searchResult;
+            item = App.getItemBag().findItem(result.get());
+            if (item.getType().equals("Beer")) {
+                beerResult = (Beer) item;
+            } else if (item.getType().equals("Wine")) {
+                wineResult = (Wine) item;
+            } else if (item.getType().equals("Liquor")) {
+                liquorResult = (Liquor) item;
             }
 
             root = new BorderPane();
-            root.setTop(EmployeeHomeView.getEmployeeMenuBar());
+            Employee searchResult = (Employee) LoginController.getCurrentUser();
+            if (searchResult.getRank().equals("General")) {
+                root.setTop(EmployeeHomeView.getEmployeeMenuBar());
+            } else if(searchResult.getRank().equals("Manager") || searchResult.getRank().equals("Owner")){
+                root.setTop(ManagerHomeView.getMenuBar());
+            }
             pane = new GridPane();
             pane.setPadding(new Insets(5));
             pane.setVgap(5);
             pane.setHgap(5);
             root.setCenter(pane);
 
-            ViewItemController controller = new ViewItemController(this, searchResult);
+            ViewItemController controller = new ViewItemController(this, item);
             listenForChange(searchResult.getType());
 
             Scene scene = new Scene(root, 1280, 720);
@@ -97,17 +101,17 @@ public class ViewItemView {
                 typeField.setItems(FXCollections.observableArrayList("Drink"));
             }
             Label nameLabel = new Label("Name: ");
-            nameField = new TextField(searchResult.getName());
+            nameField = new TextField(item.getName());
             pane.add(nameLabel, 0, 6);
             pane.add(nameField, 1, 6);
 
             Label descriptionLabel = new Label("Description: ");
-            descriptionField = new TextArea(searchResult.getDescription());
+            descriptionField = new TextArea(item.getDescription());
             pane.add(descriptionLabel, 0, 7);
             pane.add(descriptionField, 1, 7, 2, 2);
 
             Label priceLabel = new Label("Price: ");
-            priceField = new TextField(Double.toString(searchResult.getPrice()));
+            priceField = new TextField(Double.toString(item.getPrice()));
             pane.add(priceLabel, 0, 9);
             pane.add(priceField, 1, 9);
 
@@ -445,12 +449,12 @@ public class ViewItemView {
         this.typeField = typeField;
     }
 
-    public Item getSearchResult() {
-        return searchResult;
+    public Item getItem() {
+        return item;
     }
 
-    public void setSearchResult(Item searchResult) {
-        this.searchResult = searchResult;
+    public void setItem(Item item) {
+        this.item = item;
     }
 
     public Beer getBeerResult() {

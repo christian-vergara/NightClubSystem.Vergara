@@ -1,41 +1,42 @@
-package View.EmployeeHomeView;
+package View.ManagerHomeView;
 
-import App.App;
-import Controller.EmployeeHome.EmployeeHomeController;
-import Controller.EmployeeHome.MenuItemEventObject;
-import Controller.EmployeeHome.MenuItemListener;
 import Controller.Login.LoginController;
+import Controller.ManagerHomeController.ManagerHomeController;
+import Controller.ManagerHomeController.MenuItemEventObjectM;
+import Controller.ManagerHomeController.MenuItemListenerM;
+import Model.Objects.Employee;
 import Model.Objects.User;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.controlsfx.control.StatusBar;
-
-import java.util.EventListener;
 
 
 /**
  * Created by chris on 11/14/2016.
  */
-public class EmployeeHomeView {
+public class ManagerHomeView {
 
     private static Stage stage;
     private static Scene scene;
     private static User currentUser;
     private BorderPane pane;
-    private static MenuBar employeeMenuBar;
-    private MenuItemListener menuItemListener;
+    private static MenuBar menuBar;
+    private MenuItemListenerM menuItemListenerM;
     private MenuItem menuItem;
     private MenuItem viewTables, viewCustomer, viewEmployee, viewEntertainer, viewItem;
     private MenuItem addTable, addCustomer, addEmployee, addEntertainer, addItem;
+    private Employee searchResult;
+    private Employee searchManager;
 
-
-    public EmployeeHomeView(Stage stage) {
-        EmployeeHomeView.stage = stage;
+    public ManagerHomeView(Stage stage) {
+        ManagerHomeView.stage = stage;
 
         //Set Controller
-        EmployeeHomeController controller = new EmployeeHomeController(this);
+        ManagerHomeController controller = new ManagerHomeController(this);
 
         //Root BorderPane
         pane = new BorderPane();
@@ -45,8 +46,8 @@ public class EmployeeHomeView {
 
         pane.setBottom(statusBar);
 
-        employeeMenuBar = new MenuBar();
-        employeeMenuBar.getStyleClass().add("menuBar");
+        menuBar = new MenuBar();
+        menuBar.getStyleClass().add("menuBar");
 
         Menu file = new Menu("File");
         MenuItem save = new MenuItem("Save");
@@ -61,9 +62,11 @@ public class EmployeeHomeView {
         viewCustomer.setId("viewCustomer");
         viewEntertainer = new MenuItem("Entertainer");
         viewEntertainer.setId("viewEntertainer");
+        viewEmployee = new MenuItem("Employee");
+        viewEmployee.setId("viewEmployee");
         viewItem = new MenuItem("Item");
         viewItem.setId("viewItem");
-        view.getItems().addAll(viewCustomer, viewEntertainer, viewTables, viewItem);
+        view.getItems().addAll(viewCustomer, viewEntertainer,viewEmployee, viewTables, viewItem);
 
         Menu add = new Menu("Add");
         addCustomer = new MenuItem("Customer");
@@ -80,83 +83,83 @@ public class EmployeeHomeView {
 
 
 
-        employeeMenuBar.getMenus().addAll(file, view, add);
+        menuBar.getMenus().addAll(file, view, add);
 
         //Action Events for each menuItem
         //ADD
         addCustomer.setOnAction(event -> {
             MenuItem menuItem = addCustomer;
-            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
-            if (menuItemListener != null) {
-                menuItemListener.itemClicked(ev);
+            MenuItemEventObjectM ev = new MenuItemEventObjectM(this, menuItem);
+            if (menuItemListenerM != null) {
+                menuItemListenerM.itemClicked(ev);
             }
         });
         addEmployee.setOnAction(event -> {
             MenuItem menuItem = addEmployee;
-            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
-            if (menuItemListener != null) {
-                menuItemListener.itemClicked(ev);
+            MenuItemEventObjectM ev = new MenuItemEventObjectM(this, menuItem);
+            if (menuItemListenerM != null) {
+                menuItemListenerM.itemClicked(ev);
             }
         });
         addEntertainer.setOnAction(event -> {
             MenuItem menuItem = addEntertainer;
-            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
-            if (menuItemListener != null) {
-                menuItemListener.itemClicked(ev);
+            MenuItemEventObjectM ev = new MenuItemEventObjectM(this, menuItem);
+            if (menuItemListenerM != null) {
+                menuItemListenerM.itemClicked(ev);
             }
         });
         addItem.setOnAction(event -> {
             MenuItem menuItem = addItem;
-            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
-            if (menuItemListener != null) {
-                menuItemListener.itemClicked(ev);
+            MenuItemEventObjectM ev = new MenuItemEventObjectM(this, menuItem);
+            if (menuItemListenerM != null) {
+                menuItemListenerM.itemClicked(ev);
             }
         });
         addTable.setOnAction(event -> {
             MenuItem menuItem = addTable;
-            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
-            if (menuItemListener != null) {
-                menuItemListener.itemClicked(ev);
+            MenuItemEventObjectM ev = new MenuItemEventObjectM(this, menuItem);
+            if (menuItemListenerM != null) {
+                menuItemListenerM.itemClicked(ev);
             }
         });
         //VIEW
         viewCustomer.setOnAction(event -> {
             MenuItem menuItem = viewCustomer;
-            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
-            if (menuItemListener != null) {
-                menuItemListener.itemClicked(ev);
+            MenuItemEventObjectM ev = new MenuItemEventObjectM(this, menuItem);
+            if (menuItemListenerM != null) {
+                menuItemListenerM.itemClicked(ev);
             }
         });
-   /*     viewEmployee.setOnAction(event -> {
+        viewEmployee.setOnAction(event -> {
             MenuItem menuItem = viewEmployee;
             MenuItemEventObjectM ev = new MenuItemEventObjectM(this, menuItem);
-            if (menuItemListener != null) {
-                menuItemListener.itemClicked(ev);
+            if (menuItemListenerM != null) {
+                menuItemListenerM.itemClicked(ev);
             }
-        }); */
+        });
         viewEntertainer.setOnAction(event -> {
             MenuItem menuItem = viewEntertainer;
-            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
-            if (menuItemListener != null) {
-                menuItemListener.itemClicked(ev);
+            MenuItemEventObjectM ev = new MenuItemEventObjectM(this, menuItem);
+            if (menuItemListenerM != null) {
+                menuItemListenerM.itemClicked(ev);
             }
         });
         viewItem.setOnAction(event -> {
             MenuItem menuItem = viewItem;
-            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
-            if (menuItemListener != null) {
-                menuItemListener.itemClicked(ev);
+            MenuItemEventObjectM ev = new MenuItemEventObjectM(this, menuItem);
+            if (menuItemListenerM != null) {
+                menuItemListenerM.itemClicked(ev);
             }
         });
         viewTables.setOnAction(event -> {
             MenuItem menuItem = viewTables;
-            MenuItemEventObject ev = new MenuItemEventObject(this, menuItem);
-            if (menuItemListener != null) {
-                menuItemListener.itemClicked(ev);
+            MenuItemEventObjectM ev = new MenuItemEventObjectM(this, menuItem);
+            if (menuItemListenerM != null) {
+                menuItemListenerM.itemClicked(ev);
             }
         });
 
-        pane.setTop(employeeMenuBar);
+        pane.setTop(menuBar);
         scene = new Scene(pane, 1280, 720);
         scene.getStylesheets().add("View/EmployeeHomeView/EmployeeHomeView.css");
         stage.setScene(scene);
@@ -169,7 +172,7 @@ public class EmployeeHomeView {
     }
 
     public static void setCurrentUser(User currentUser) {
-        EmployeeHomeView.currentUser = currentUser;
+        ManagerHomeView.currentUser = currentUser;
     }
 
     public static Stage getStage() {
@@ -228,12 +231,12 @@ public class EmployeeHomeView {
         return addItem;
     }
 
-    public static MenuBar getEmployeeMenuBar() {
-        return employeeMenuBar;
+    public static MenuBar getMenuBar() {
+        return menuBar;
     }
     
-    public void setMenuItemListener(MenuItemListener menuItemListener) {
-        this.menuItemListener = menuItemListener;
+    public void setMenuItemListener(MenuItemListenerM menuItemListener) {
+        this.menuItemListenerM = menuItemListener;
     }
 
 

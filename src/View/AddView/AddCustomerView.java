@@ -7,8 +7,10 @@ import Controller.AddCustomerController.AddCustomerListener;
 import Controller.Login.LoginController;
 import Model.Bags.TableBag;
 import Model.Bags.UserBag;
+import Model.Objects.Employee;
 import Model.Objects.User;
 import View.EmployeeHomeView.EmployeeHomeView;
+import View.ManagerHomeView.ManagerHomeView;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -86,7 +88,12 @@ public class AddCustomerView {
             }
         });
 
-        pane.setTop(employeeMenuBar);
+        Employee searchResult = (Employee) LoginController.getCurrentUser();
+        if (searchResult.getRank().equals("General")) {
+            pane.setTop(EmployeeHomeView.getEmployeeMenuBar());
+        } else if(searchResult.getRank().equals("Manager") || searchResult.getRank().equals("Owner")){
+            pane.setTop(ManagerHomeView.getMenuBar());
+        }
         pane.setCenter(gridPane);
         Scene scene = new Scene(pane, 1280, 720);
         scene.getStylesheets().add("View/AddView/AddStyleSheet.css");

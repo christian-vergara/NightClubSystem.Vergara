@@ -1,10 +1,12 @@
 package Model.Bags;
 
+import App.App;
 import Model.Objects.Employee;
 import Model.Objects.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by chris on 11/6/2016.
@@ -16,6 +18,7 @@ public class UserBag {
     private User currentUser;
 
     public UserBag() {
+
     }
 
     public void addUser(User user) {
@@ -36,14 +39,13 @@ public class UserBag {
     }
 
     public User verifyLogin(String userName, String password) {
+        User user = null;
         for (int i = 0;i < userBag.size();i++) {
-            if (userName.equals(userBag.get(i).getUserName()) && password.equals(userBag.get(i).getPassword())) {
-                return userBag.get(i);
-            } else if(!userName.equals(userBag.get(i).getUserName()) && !password.equals(userBag.get(i).getPassword())) {
-                return null;
+            if (Objects.equals(App.getUserBag().getUserBag().get(i).getUserName(), userName) && Objects.equals(App.getUserBag().getUserBag().get(i).getPassword(), password)) {
+                user = App.getUserBag().userBag.get(i);
             }
         }
-        return null;
+   return user;
     }
 
 
@@ -62,4 +64,6 @@ public class UserBag {
         }
         return null;
     }
+
+
 }

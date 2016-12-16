@@ -1,7 +1,10 @@
 package View.AddView;
 
 import Controller.AddItemController.*;
+import Controller.Login.LoginController;
+import Model.Objects.Employee;
 import View.EmployeeHomeView.EmployeeHomeView;
+import View.ManagerHomeView.ManagerHomeView;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -41,7 +44,12 @@ public class AddItemView {
         AddItemController controller = new AddItemController(this);
 
         root = new BorderPane();
-        root.setTop(EmployeeHomeView.getEmployeeMenuBar());
+        Employee searchResult = (Employee) LoginController.getCurrentUser();
+        if (searchResult.getRank().equals("General")) {
+            root.setTop(EmployeeHomeView.getEmployeeMenuBar());
+        } else if(searchResult.getRank().equals("Manager") || searchResult.getRank().equals("Owner")){
+            root.setTop(ManagerHomeView.getMenuBar());
+        }
         pane = new GridPane();
         pane.setPadding(new Insets(5));
         pane.setVgap(5);

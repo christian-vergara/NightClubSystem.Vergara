@@ -1,14 +1,15 @@
 package View.ViewView;
 
 import App.App;
+import Controller.Login.LoginController;
 import Controller.ViewCustomerController.ViewCustomerController;
 import Controller.ViewCustomerController.ViewCustomerEventObject;
 import Controller.ViewCustomerController.ViewCustomerListener;
-import Model.Bags.CustomerBag;
-import Model.Bags.UserBag;
 import Model.Objects.Customer;
+import Model.Objects.Employee;
 import Model.Objects.User;
 import View.EmployeeHomeView.EmployeeHomeView;
+import View.ManagerHomeView.ManagerHomeView;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -74,7 +75,7 @@ public class ViewCustomerView {
 
     public ViewCustomerView(Stage stage) {
         this.stage = stage;
-        ViewCustomerController controller = new ViewCustomerController(this);
+
 
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Find Customer");
@@ -83,9 +84,9 @@ public class ViewCustomerView {
         Optional<String> result = dialog.showAndWait();
 
         if (App.getUserBag().findUser(Integer.parseInt(result.get())) != null) {
-            searchResult = App.getUserBag().findUser(Integer.parseInt(result.get()));
+            searchResult = (Customer) App.getUserBag().findUser(Integer.parseInt(result.get()));
 
-            //ViewCustomerController controller = new ViewCustomerController(this);
+            ViewCustomerController controller = new ViewCustomerController(this);
 
             BorderPane pane = new BorderPane();
             GridPane gridPane = new GridPane();
@@ -139,7 +140,12 @@ public class ViewCustomerView {
                 }
             });
 
-            pane.setTop(employeeMenuBar);
+            Employee searchResult = (Employee) LoginController.getCurrentUser();
+            if (searchResult.getRank().equals("General")) {
+                pane.setTop(EmployeeHomeView.getEmployeeMenuBar());
+            } else if(searchResult.getRank().equals("Manager") || searchResult.getRank().equals("Owner")){
+                pane.setTop(ManagerHomeView.getMenuBar());
+            }
             pane.setCenter(gridPane);
             Scene scene = new Scene(pane, 1280, 720);
             scene.getStylesheets().add("View/AddView/AddStyleSheet.css");

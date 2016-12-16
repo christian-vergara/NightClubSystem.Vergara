@@ -37,6 +37,14 @@ public class CustomerBag {
         return null;
     }
 
+    public int getSize() {
+        return customerBag.size();
+    }
+
+    public Customer getCustomers(int index){
+        return customerBag.get(index);
+    }
+
     public static CustomerBag getCustomerBagObject() {
         return customerBagObject;
     }

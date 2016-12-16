@@ -3,7 +3,10 @@ package View.AddView;
 import Controller.AddTableController.AddTableController;
 import Controller.AddTableController.AddTableEventObject;
 import Controller.AddTableController.AddTableListener;
+import Controller.Login.LoginController;
+import Model.Objects.Employee;
 import View.EmployeeHomeView.EmployeeHomeView;
+import View.ManagerHomeView.ManagerHomeView;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -31,7 +34,12 @@ public class AddTableView {
         AddTableController controller = new AddTableController(this);
 
         BorderPane pane = new BorderPane();
-        pane.setTop(EmployeeHomeView.getEmployeeMenuBar());
+        Employee searchResult = (Employee) LoginController.getCurrentUser();
+        if (searchResult.getRank().equals("General")) {
+            pane.setTop(EmployeeHomeView.getEmployeeMenuBar());
+        } else if(searchResult.getRank().equals("Manager") || searchResult.getRank().equals("Owner")){
+            pane.setTop(ManagerHomeView.getMenuBar());
+        }
 
         GridPane grid = new GridPane();
         grid.setHgap(5);

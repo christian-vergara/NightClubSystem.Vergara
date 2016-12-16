@@ -1,7 +1,11 @@
 package View.MainView;
 
+import App.App;
+import Controller.Login.LoginController;
 import Controller.Login.LoginEventListener;
 import Controller.Login.LoginEventObject;
+import Model.Objects.User;
+import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -23,18 +27,22 @@ public class LoginView {
     private Button loginButton;
     private TextField userField;
     private PasswordField passField;
+    private Stage stage;
+    private User loginUser;
 
     private LoginEventListener loginButtonListener;
 
     public LoginView(Stage stage) {
-        Stage stage1 = stage;
+        this.stage = stage;
 
         Label mainLabel = new Label("Night Club Manager");
         mainLabel.setStyle("-fx-font-size: 72");
         Label userLabel = new Label("Username:");
         userField = new TextField();
+        userField.setText("jd1221");
         Label passLabel = new Label("Password:");
         passField = new PasswordField();
+        passField.setText("password");
         loginButton = new Button("Login");
 
         HBox field = new HBox(5);
@@ -57,21 +65,27 @@ public class LoginView {
         pane.setAlignment(Pos.CENTER);
 
         //Background image
-        BackgroundImage myBI = new BackgroundImage(new Image("http://wallpaperswide.com/download/city_night_3-wallpaper-1920x1080.jpg",1920,1080,false,true),
+        BackgroundImage myBI = new BackgroundImage(new Image("http://wallpaperswide.com/download/city_night_3-wallpaper-1920x1080.jpg",1920,1080,true,true),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         pane.setBackground(new Background(myBI));
 
 
         //Login Button Event Listener
-        loginButton.setOnAction(e -> {
+        loginButton.setOnAction((ActionEvent e) -> {
+            loginUser = App.getUserBag().verifyLogin(userField.getText(), passField.getText());
+            System.out.println(App.getUserBag().getUserBag().size());
+            System.out.println(loginUser.getUserName() + " " + App.getUserBag().getUserBag().get(0).getPassword());
             String userName = userField.getText();
             String password = passField.getText();
-            LoginEventObject ev = new LoginEventObject(this, userName, password);
+            String type = loginUser.getType();
+            int userId = loginUser.getUserId();
+            LoginEventObject ev = new LoginEventObject(this, userName, password, type, userId);
             if(loginButtonListener != null){
                 loginButtonListener.btnClicked(ev);
             }
         });
 
+        LoginController controller = new LoginController(this);
         scene = new Scene(pane, 1280, 720);
         scene.getStylesheets().add("View/MainView/LoginView.css");
         stage.setScene(scene);

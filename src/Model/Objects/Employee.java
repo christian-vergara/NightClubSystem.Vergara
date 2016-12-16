@@ -14,7 +14,6 @@ public class Employee extends User {
     private double pay;
     private String hiringDate;
     private String leaveDate;
-    private UserBag userBag;
 
     public Employee(String fName, String lName,String userName, String password, String rank, String payType, double pay, String hiringDate, String leaveDate) {
         super(fName, lName, userName, password, "emp");
@@ -24,7 +23,7 @@ public class Employee extends User {
         this.hiringDate = hiringDate;
         this.leaveDate = leaveDate;
         ++employeeId;
-        App.getUserBag().addUser(this);
+
     }
 
     public int getEmployeeId() {
@@ -69,5 +68,16 @@ public class Employee extends User {
 
     public void setLeaveDate(String leaveDate) {
         this.leaveDate = leaveDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "rank='" + rank + '\'' +
+                ", payType='" + payType + '\'' +
+                ", pay=" + pay +
+                ", hiringDate='" + hiringDate + '\'' +
+                ", leaveDate='" + leaveDate + '\'' +
+                '}';
     }
 }

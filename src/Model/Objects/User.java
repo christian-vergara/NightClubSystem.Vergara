@@ -1,5 +1,6 @@
 package Model.Objects;
 
+import App.App;
 import Model.Bags.UserBag;
 
 /**
@@ -28,6 +29,7 @@ public class User {
         this.type = type;
         userId = count;
         count++;
+        App.getUserBag().addUser(this);
     }
 
     public String getfName() {

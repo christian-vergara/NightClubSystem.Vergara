@@ -19,7 +19,6 @@ public class Entertainer extends User {
         this.pay = pay;
         this.hours = hours;
         this.workDate = workDate;
-        App.getUserBag().addUser(this);
     }
 
     public String getType() {
