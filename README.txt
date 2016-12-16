@@ -7,4 +7,6 @@ username: employee
 password: employee
 username: owner
 password: owner
+Auto load data on open.
+Save prompt when exiting program.
 
