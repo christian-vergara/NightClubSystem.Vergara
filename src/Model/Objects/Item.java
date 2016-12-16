@@ -2,10 +2,12 @@ package Model.Objects;
 
 import App.App;
 
+import java.io.Serializable;
+
 /**
  * Created by chris on 11/6/2016.
  */
-public class Item {
+public class Item implements Serializable {
 
     private String type;
     private String name;

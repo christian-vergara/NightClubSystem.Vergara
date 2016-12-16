@@ -32,6 +32,10 @@ public class AddEmployeeController {
                         addEmployeeView.getPayField().clear();
                         addEmployeeView.getHiringDateField().clear();
                         addEmployeeView.getUserIdField().setText(Integer.toString(User.getCount()));
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Added!");
+                        alert.setHeaderText("Employee added!");
+                        alert.showAndWait();
                     }
                 });
 

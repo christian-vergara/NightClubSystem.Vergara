@@ -48,11 +48,6 @@ public class EmployeeHomeView {
         employeeMenuBar = new MenuBar();
         employeeMenuBar.getStyleClass().add("menuBar");
 
-        Menu file = new Menu("File");
-        MenuItem save = new MenuItem("Save");
-        MenuItem load = new MenuItem("Load");
-        file.getItems().addAll(save, load);
-
         //Adding Menu items and setting ID's to pass to controller
         Menu view = new Menu("View");
         viewTables = new MenuItem("Tables");
@@ -80,7 +75,7 @@ public class EmployeeHomeView {
 
 
 
-        employeeMenuBar.getMenus().addAll(file, view, add);
+        employeeMenuBar.getMenus().addAll(view, add);
 
         //Action Events for each menuItem
         //ADD

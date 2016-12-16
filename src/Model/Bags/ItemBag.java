@@ -2,13 +2,14 @@ package Model.Bags;
 
 import Model.Objects.Item;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by chris on 11/6/2016.
  */
-public class ItemBag {
+public class ItemBag implements Serializable {
 
     private List<Item> itemBag = new ArrayList<>();
 

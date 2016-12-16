@@ -5,6 +5,7 @@ import Model.Bags.UserBag;
 import Model.Objects.Customer;
 import Model.Objects.Employee;
 import Model.Objects.User;
+import View.CustomerHomeView.CustomerHomeView;
 import View.EmployeeHomeView.EmployeeHomeView;
 import View.MainView.LoginView;
 import View.ManagerHomeView.ManagerHomeView;
@@ -31,7 +32,9 @@ public class LoginController {
                 } else if (((Employee) currentUser).getRank().equals("Owner")) {
                     ManagerHomeView managerHomeView = new ManagerHomeView(App.getPrimaryStage());
                 }
-
+            } else if (ev.getType().equals("cust")) {
+                CustomerHomeView customerHomeView = new CustomerHomeView(App.getPrimaryStage());
+                customerHomeView.setCurrent((Customer) currentUser);
             }
                 //Temp for quick login
                 //EmployeeHomeView employeeHomeView = new EmployeeHomeView(App.App.getPrimaryStage());

@@ -4,6 +4,7 @@ import App.App;
 import Model.Objects.Employee;
 import Model.Objects.User;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -11,7 +12,7 @@ import java.util.Objects;
 /**
  * Created by chris on 11/6/2016.
  */
-public class UserBag {
+public class UserBag implements Serializable{
 
     private List<User> userBag = new ArrayList<>();
     private UserBag userBagClass = this;

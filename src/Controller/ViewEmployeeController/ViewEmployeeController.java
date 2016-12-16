@@ -29,6 +29,10 @@ public class ViewEmployeeController {
                         employee.setPay(ev.getPay());
                         employee.setHiringDate(ev.getHiringDate());
                         employee.setLeaveDate(ev.getLeaveDate());
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Updated!");
+                        alert.setHeaderText("Employee Successfully Updated!");
+                        alert.showAndWait();
                     }
                 });
 

@@ -49,11 +49,6 @@ public class ManagerHomeView {
         menuBar = new MenuBar();
         menuBar.getStyleClass().add("menuBar");
 
-        Menu file = new Menu("File");
-        MenuItem save = new MenuItem("Save");
-        MenuItem load = new MenuItem("Load");
-        file.getItems().addAll(save, load);
-
         //Adding Menu items and setting ID's to pass to controller
         Menu view = new Menu("View");
         viewTables = new MenuItem("Tables");
@@ -83,7 +78,7 @@ public class ManagerHomeView {
 
 
 
-        menuBar.getMenus().addAll(file, view, add);
+        menuBar.getMenus().addAll(view, add);
 
         //Action Events for each menuItem
         //ADD

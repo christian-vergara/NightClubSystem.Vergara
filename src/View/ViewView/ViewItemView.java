@@ -69,13 +69,20 @@ public class ViewItemView {
             root.setCenter(pane);
 
             ViewItemController controller = new ViewItemController(this, item);
-            listenForChange(searchResult.getType());
 
-            Scene scene = new Scene(root, 1280, 720);
-            scene.getStylesheets().add("View/AddView/AddStyleSheet.css");
-            stage.setScene(scene);
-            stage.show();
+
+        } else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error!");
+            alert.setHeaderText("Not Found! Please try again");
+            alert.showAndWait();
         }
+        listenForChange(item.getType());
+        Scene scene = new Scene(root, 1280, 720);
+        scene.getStylesheets().add("View/AddView/AddStyleSheet.css");
+        stage.setScene(scene);
+        stage.show();
+
     }
 
 

@@ -3,10 +3,12 @@ package Model.Objects;
 import App.App;
 import Model.Bags.UserBag;
 
+import java.io.Serializable;
+
 /**
  * Created by chris on 11/6/2016.
  */
-public class User {
+public class User implements Serializable{
 
     private String fName;
     private String lName;

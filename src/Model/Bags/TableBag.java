@@ -2,12 +2,13 @@ package Model.Bags;
 
 import Model.Objects.Table;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * Created by Studio on 12/12/2016.
  */
-public class TableBag {
+public class TableBag implements Serializable{
 
     protected List<Table> tableList = new ArrayList<>(1);
 
@@ -31,5 +32,9 @@ public class TableBag {
 
     public List<Table> getTableList() {
         return tableList;
+    }
+
+    public Table getTables(int index){
+        return tableList.get(index);
     }
 }

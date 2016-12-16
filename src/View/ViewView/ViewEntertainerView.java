@@ -125,6 +125,11 @@ public class ViewEntertainerView {
             scene.getStylesheets().add("View/AddView/AddStyleSheet.css");
             stage.setScene(scene);
             stage.show();
+        } else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error!");
+            alert.setHeaderText("Not Found! Please try again");
+            alert.showAndWait();
         }
     }
 

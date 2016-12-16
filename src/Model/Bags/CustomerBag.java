@@ -4,21 +4,22 @@ import Model.Objects.Customer;
 import Model.Objects.Employee;
 import Model.Objects.User;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by chris on 11/6/2016.
  */
-public class CustomerBag {
+public class CustomerBag implements Serializable {
 
-    public CustomerBag() {
+    int size = 0;
 
+    public CustomerBag(int size) {
+        this.size = size;
     }
 
-    protected static CustomerBag customerBagObject = new CustomerBag();
-
-    private List<Customer> customerBag = new ArrayList<>();
+    private List<Customer> customerBag = new ArrayList<>(size);
 
     public void addCustomer(Customer customer) {
         customerBag.add(customer);
@@ -30,7 +31,7 @@ public class CustomerBag {
 
     public Customer findCustomer(int customerId) {
         for(int i = 0;i < customerBag.size();i++) {
-            if (customerBag.get(i).getCustomerId() == customerId) {
+            if (customerBag.get(i).getUserId() == customerId) {
                 return customerBag.get(i);
             }
         }
@@ -45,7 +46,7 @@ public class CustomerBag {
         return customerBag.get(index);
     }
 
-    public static CustomerBag getCustomerBagObject() {
-        return customerBagObject;
+    public List<Customer> getCustomerBag() {
+        return customerBag;
     }
 }

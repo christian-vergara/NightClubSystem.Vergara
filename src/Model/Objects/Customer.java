@@ -9,6 +9,7 @@ import Model.Bags.UserBag;
 public class Customer extends User {
 
     private static int customerId = 0;
+    private int ticketAmount;
 
 
     public Customer(String fName, String lName,String userName, String password) {
@@ -19,4 +20,14 @@ public class Customer extends User {
     public static int getCustomerId() {
         return customerId;
     }
+
+    public int getTicketAmount() {
+        return ticketAmount;
+    }
+
+    public void setTicketAmount(int ticketAmount) {
+        this.ticketAmount = ticketAmount;
+    }
 }
+
+

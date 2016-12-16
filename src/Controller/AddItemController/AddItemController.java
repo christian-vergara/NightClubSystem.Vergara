@@ -46,6 +46,10 @@ public class AddItemController {
                         addItemView.getBrandField().clear();
                         addItemView.getOriginField().clear();
                         addItemView.getAlcVolField().clear();
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Added!");
+                        alert.setHeaderText("Item has been added!");
+                        alert.showAndWait();
                     }
                 });
             }

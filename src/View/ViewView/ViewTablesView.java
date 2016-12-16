@@ -91,6 +91,18 @@ public class ViewTablesView {
                     viewTablesListener.btnClicked(ev);
                 }
             });
+
+            Button clearTableButton = new Button("Clear Table");
+            grid.add(clearTableButton, 0, 11);
+
+            clearTableButton.setOnAction(event -> {
+                Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+                confirm.setTitle("Confirm");
+                confirm.setHeaderText("Table Cleared!");
+                tableresult.removeSitting(tableresult.getCurrentSitting());
+                tableresult.getCustomerBag().getCustomerBag().clear();
+                currentCustomerField.clear();
+            });
         } else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error!");

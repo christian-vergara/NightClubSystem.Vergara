@@ -28,6 +28,10 @@ public class AddEntertainerController {
                     addEntertainerView.getTypeField().clear();
                     addEntertainerView.getPayField().clear();
                     addEntertainerView.getUserIdField().setText(Integer.toString(User.getCount()));
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Added!");
+                    alert.setHeaderText("Entertainer Added!");
+                    alert.showAndWait();
                 }
             });
 
