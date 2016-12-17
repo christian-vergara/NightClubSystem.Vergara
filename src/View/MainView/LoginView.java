@@ -71,8 +71,6 @@ public class LoginView {
         //Login Button Event Listener
         loginButton.setOnAction((ActionEvent e) -> {
             loginUser = App.getUserBag().verifyLogin(userField.getText(), passField.getText());
-            System.out.println(App.getUserBag().getUserBag().size());
-            System.out.println(loginUser.getUserName() + " " + App.getUserBag().getUserBag().get(0).getPassword());
             String userName = userField.getText();
             String password = passField.getText();
             String type = loginUser.getType();

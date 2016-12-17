@@ -33,17 +33,19 @@ public class App extends Application{
 
     public static void main(String args[]) {
 
-        try {
-            OpenBin.openFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            OpenBin.openFile();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
 
         User m1 = new Employee("Joseph", "Example", "jd1221", "password", "Manager", "Salary", 55000, "NA", "NA");
         User e1 = new Employee("Joe", "Brown", "employee", "employee", "General", "Hourly", 24.50, "11/9/16", "11/10/16");
         User c1 = new Customer("David", "Appleseed", "customer", "customer" );
+        User o1 = new Employee("Johnny", "James", "owner", "owner", "Owner", "Salary", 100000, "NA", "NA");
+        User m2 = new Employee("Manager", "Example", "manager", "manager", "Manager", "Salary", 55000, "12/7/14", "NA");
 
         launch(args);
         //TEMP USERS FOR QUICK LOGIN
