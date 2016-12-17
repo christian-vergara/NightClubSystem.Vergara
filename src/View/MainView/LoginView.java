@@ -39,10 +39,8 @@ public class LoginView {
         mainLabel.setStyle("-fx-font-size: 72");
         Label userLabel = new Label("Username:");
         userField = new TextField();
-        userField.setText();
         Label passLabel = new Label("Password:");
         passField = new PasswordField();
-        passField.setText();
         loginButton = new Button("Login");
 
         HBox field = new HBox(5);
