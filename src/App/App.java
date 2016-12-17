@@ -33,13 +33,13 @@ public class App extends Application{
 
     public static void main(String args[]) {
 
-//        try {
-//            OpenBin.openFile();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            OpenBin.openFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
         User m1 = new Employee("Joseph", "Example", "jd1221", "password", "Manager", "Salary", 55000, "NA", "NA");
         User e1 = new Employee("Joe", "Brown", "employee", "employee", "General", "Hourly", 24.50, "11/9/16", "11/10/16");
